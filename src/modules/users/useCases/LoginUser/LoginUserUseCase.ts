@@ -14,7 +14,7 @@ export class LoginUserUseCase {
         });
 
         if (!user) {
-            throw new Error("User not found or password incorrect");
+            throw new Error("User not found incorrect");
         }
 
         const isPasswordValid = bcrypt.compareSync(password, user.password);
