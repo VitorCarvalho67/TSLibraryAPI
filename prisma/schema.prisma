@@ -17,6 +17,7 @@ model User {
     email    String @unique
     password String
     rent     Rent[]
+    avaliation Avaliation[]
 }
 
 model Book {
@@ -28,6 +29,7 @@ model Book {
     authorId String
     price   Float
     rent    Rent[]
+    avaliation Avaliation[]
 }
 
 model Author {
@@ -46,6 +48,35 @@ model Rent {
     bookId  String
     rentAt  DateTime
     returnAt DateTime
+    devolution Devolution?
+    status  Boolean @default(true)
+}
+
+model Devolution {
+    @@map("devolutions")
+    id      String  @id @default(uuid())
+    rent    Rent    @relation(fields: [rentId], references: [id])
+    rentId  String @unique
+    devolutionAt DateTime
+    description String?  
+}
+
+model Avaliation {
+    @@map("avaliation")
+    id      String  @id @default(uuid())
+    user    User    @relation(fields: [userId], references: [id])
+    userId  String
+    book    Book    @relation(fields: [bookId], references: [id])
+    bookId  String
+    avaliationAt DateTime
+    description AvaliationDescription
+}
+
+enum AvaliationDescription {
+    EXCELLENT
+    GOOD
+    NORMAL
+    BAD
 }
 
 model Admin {
