@@ -5,15 +5,25 @@ import { AppError } from "../../../../errors/error";
 export class ViewAllBooksUseCase {
     async execute(): Promise<Book[]> {
         const books = await prisma.book.findMany({
+            
             include: {
-                author: true
+                author: {
+                    select: {
+                        name: true
+                    }
+                }
             }
-        }
-        );
-
+        });
+        
         if (!books) {
             throw new AppError("No books found");
         }
-        return books;
+
+        return books.map(book => {
+            return {
+                ...book,
+            }
+        });
     }
+
 }
