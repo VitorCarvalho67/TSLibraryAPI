@@ -4,7 +4,7 @@ import { CreateAvaliationDTO } from "../../dtos/CreateAvaliationDTO";
 import { AppError } from "../../../../errors/error";
 
 export class CreateAvaliationUseCase {
-    async execute({userId, bookId, avaliationAt, description}: CreateAvaliationDTO ): Promise<Avaliation> {
+    async execute({userId, bookId, description}: CreateAvaliationDTO ): Promise<Avaliation> {
         const AvaliationAlreadyExists = await prisma.avaliation.findMany({
             where: {
                 userId,
@@ -12,7 +12,7 @@ export class CreateAvaliationUseCase {
             }
         });
 
-        if(AvaliationAlreadyExists) {
+        if(AvaliationAlreadyExists.length > 0) {
             throw new AppError("Avaliation already exists");
         }
 
@@ -20,7 +20,7 @@ export class CreateAvaliationUseCase {
             data: {
                 userId,
                 bookId,
-                avaliationAt,
+                avaliationAt: new Date(),
                 description
             }
         });

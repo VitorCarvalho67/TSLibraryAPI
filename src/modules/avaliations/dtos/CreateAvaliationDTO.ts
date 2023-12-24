@@ -1,7 +1,6 @@
 export interface CreateAvaliationDTO {
     userId: string;
     bookId: string;
-    avaliationAt: Date;
     description: AvaliationDescription;
 }
 
