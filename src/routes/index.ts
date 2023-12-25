@@ -5,6 +5,7 @@ import { AuthorRoutes } from './author.routes';
 import { RentRoutes } from './rent.routes';
 import { AvaliationRoutes } from './avaliation.routes';
 import { DevolutionRoutes } from './devolution.routes';
+import { AdminRoutes } from './admin.routes';
 
 const routes = Router();
 
@@ -13,6 +14,7 @@ routes.use('/books', BookRoutes);
 routes.use('/authors', AuthorRoutes);
 routes.use('/rents', RentRoutes);
 routes.use('/avaliations', AvaliationRoutes);
-routes.use('/devolutions', DevolutionRoutes)
+routes.use('/devolutions', DevolutionRoutes);
+routes.use('/admins', AdminRoutes);
 
 export { routes };

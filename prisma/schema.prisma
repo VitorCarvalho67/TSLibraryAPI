@@ -11,65 +11,71 @@ datasource db {
 }
 
 model User {
-    @@map("users")
-    id       String @id @default(uuid())
-    name     String
-    email    String @unique
-    password String
-    rent     Rent[]
+    id         String       @id @default(uuid())
+    name       String
+    email      String       @unique
+    password   String
+    rent       Rent[]
     avaliation Avaliation[]
+
+    @@map("users")
 }
 
 model Book {
-    @@map("books")
-    id      String  @id @default(uuid())
-    barcode String  @unique
-    title   String  @unique
-    author  Author  @relation(fields: [authorId], references: [id])
-    authorId String
-    price   Float
-    rent    Rent[]
+    id         String       @id @default(uuid())
+    barcode    String       @unique
+    title      String       @unique
+    author     Author       @relation(fields: [authorId], references: [id])
+    authorId   String
+    price      Float
+    rent       Rent[]
     avaliation Avaliation[]
+
+    @@map("books")
 }
 
 model Author {
+    id   String @id @default(uuid())
+    name String @unique
+    book Book[]
+
     @@map("authors")
-    id      String  @id @default(uuid())
-    name    String  @unique
-    book    Book[]
 }
 
 model Rent {
-    @@map("rents")
-    id      String  @id @default(uuid())
-    user    User    @relation(fields: [userId], references: [id])
-    userId  String
-    book    Book    @relation(fields: [bookId], references: [id])
-    bookId  String
-    rentAt  DateTime
-    returnAt DateTime
+    id         String      @id @default(uuid())
+    user       User        @relation(fields: [userId], references: [id])
+    userId     String
+    book       Book        @relation(fields: [bookId], references: [id])
+    bookId     String
+    rentAt     DateTime
+    returnAt   DateTime
     devolution Devolution?
-    status  Boolean @default(true)
+    status     Boolean     @default(true)
+
+    @@map("rents")
 }
 
 model Devolution {
-    @@map("devolutions")
-    id      String  @id @default(uuid())
-    rent    Rent    @relation(fields: [rentId], references: [id])
-    rentId  String @unique
+    id           String   @id @default(uuid())
+    rent         Rent     @relation(fields: [rentId], references: [id])
+    rentId       String   @unique
     devolutionAt DateTime
-    description String?  
+    description  String?
+
+    @@map("devolutions")
 }
 
 model Avaliation {
-    @@map("avaliation")
-    id      String  @id @default(uuid())
-    user    User    @relation(fields: [userId], references: [id])
-    userId  String
-    book    Book    @relation(fields: [bookId], references: [id])
-    bookId  String
+    id           String                @id @default(uuid())
+    user         User                  @relation(fields: [userId], references: [id])
+    userId       String
+    book         Book                  @relation(fields: [bookId], references: [id])
+    bookId       String
     avaliationAt DateTime
-    description AvaliationDescription
+    description  AvaliationDescription
+
+    @@map("avaliation")
 }
 
 enum AvaliationDescription {
@@ -80,7 +86,7 @@ enum AvaliationDescription {
 }
 
 model Admin {
-    id       Int    @id @default(autoincrement())
+    id       String @id @default(uuid())
     email    String @unique
     password String
 }
