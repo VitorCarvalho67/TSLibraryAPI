@@ -35,4 +35,3 @@ yarn dev
 
 ## License
 ![LICENSE](https://github.com/VitorCarvalho67/TSLibraryAPI/assets/102667323/a2a8b5d2-d067-4268-8f6c-9dc338dd2fb8)
-

@@ -1,11 +1,12 @@
 import { User } from "@prisma/client";
 import { prisma } from "../../../../prisma/client";
 import { LoginUserDTO } from "../../dtos/LoginUserDTO";
+import { generateAccessToken } from "../../../../jwt/jwtService";
 
 const bcrypt = require('bcrypt');
 
 export class LoginUserUseCase {
-    async execute({ email, password }: LoginUserDTO): Promise<User> {
+    async execute({ email, password }: LoginUserDTO): Promise<{token: string, user: Omit<User, 'password'>}> {
 
         const user = await prisma.user.findFirst({
             where: {
@@ -23,6 +24,17 @@ export class LoginUserUseCase {
             throw new Error("User not found or password incorrect");
         }
 
-        return user;
+        const token = generateAccessToken(user);
+        
+        if (!token) {
+            throw new Error("Error generating token");
+        }
+
+        return {token: token, user: {
+            id: user.id,
+            name: user.name,
+            email: user.email
+        }};
+    
     }
 }
