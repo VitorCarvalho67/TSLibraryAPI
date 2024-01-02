@@ -7,7 +7,7 @@ const loginAdminController = new LoginAdminController();
 
 const AdminRoutes = Router();
 
-AdminRoutes.post('/', createAuthorController.handle);
-AdminRoutes.post('/login', loginAdminController.handle);
+AdminRoutes.post('/', createAuthorController.handle); // criar um admin
+AdminRoutes.post('/login', loginAdminController.handle); // logar um admin
 
 export { AdminRoutes };

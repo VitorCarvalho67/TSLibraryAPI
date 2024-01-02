@@ -6,6 +6,6 @@ const createDevolutionController = new CreateDevolutionController();
 
 const DevolutionRoutes = Router();
 
-DevolutionRoutes.post('/', userAuthMiddleware, createDevolutionController.handle);
+DevolutionRoutes.post('/', userAuthMiddleware, createDevolutionController.handle); // criar uma devolução
 
 export { DevolutionRoutes };
