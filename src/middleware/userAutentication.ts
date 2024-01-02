@@ -30,7 +30,7 @@ export async function userAuthMiddleware(req: RequestWithUser, res: Response, ne
 
         if (!user) {
             throw new Error('User not found');
-        }
+        } 
 
         req.user = { id: user.id};
 
