@@ -7,7 +7,7 @@ const loginUserController = new LoginUserController();
 
 const userRoutes = Router();
 
-userRoutes.post('/', createUserController.handle);
-userRoutes.post('/login', loginUserController.handle);
+userRoutes.post('/', createUserController.handle); // criar um usuário
+userRoutes.post('/login', loginUserController.handle); // logar um usuário
 
 export { userRoutes };

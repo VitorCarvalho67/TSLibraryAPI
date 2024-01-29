@@ -7,7 +7,7 @@ const viewActiveRentController = new ViewActiveRentController();
 
 const RentRoutes = Router();
 
-RentRoutes.post('/', createRentController.handle);
-RentRoutes.get('/ActiveRent', viewActiveRentController.handle);
+RentRoutes.post('/', createRentController.handle); // criar um aluguel
+RentRoutes.get('/ActiveRent', viewActiveRentController.handle); // pegar todos os alugueis ativos
 
 export { RentRoutes };
