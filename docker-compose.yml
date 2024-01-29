@@ -1,12 +1,40 @@
 version: '3'
 
 services:
-  server:
+  api01: &api
     build: ./
     ports:
       - "3000:3000"
     depends_on:
       - database
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.4GB'
+    command: sh -c "sleep 10 && npx prisma migrate deploy"
+    networks:
+      - API
+
+  api02:
+    <<: *api
+    ports:
+      - "3001:3000"
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api01
+      - api02
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: '0.5GB'
+    ports:
+      - "9999:9999"
     networks:
       - API
 
