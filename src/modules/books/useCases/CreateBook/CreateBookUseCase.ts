@@ -1,5 +1,5 @@
 import { Book } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { CreateBookDTO } from "../../dtos/CreateBookDTO";
 import { AppError } from "../../../../errors/error";
 

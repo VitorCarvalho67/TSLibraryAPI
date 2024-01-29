@@ -1,5 +1,5 @@
 import { Devolution } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { CreateDevolutionDTO } from "../../dtos/CreateDevolutionDTO";
 import { AppError } from "../../../../errors/error";
 

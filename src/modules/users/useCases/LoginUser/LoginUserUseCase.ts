@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { LoginUserDTO } from "../../dtos/LoginUserDTO";
 import { generateAccessToken } from "../../../../jwt/jwtService";
 

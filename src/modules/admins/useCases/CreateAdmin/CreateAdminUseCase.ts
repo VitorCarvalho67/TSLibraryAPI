@@ -1,5 +1,5 @@
 import { Admin } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { CreateAdminDTO } from "../../dtos/CreateAdminDTO";
 import { AppError } from "../../../../errors/error";
 

@@ -1,5 +1,5 @@
 import { Author } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { CreateAuthorDTO } from "../../dtos/CreateAuthorDTO";
 import { AppError } from "../../../../errors/error";
 
