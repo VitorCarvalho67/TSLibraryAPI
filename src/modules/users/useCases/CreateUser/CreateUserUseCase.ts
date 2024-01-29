@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma from "../../../../prisma/client";
 import { CreateUserDTO } from "../../dtos/CreateUserDTO";
 import { AppError } from "../../../../errors/error";
 
@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 
 export class CreateUserUseCase {
     async execute({name, email, password}: CreateUserDTO ): Promise<User> {
+
         const userAlreadyExists = await prisma.user.findUnique({
             where: {
                 email
