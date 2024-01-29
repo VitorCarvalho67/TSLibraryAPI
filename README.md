@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://github.com/VitorCarvalho67/TSLibraryAPI/assets/102667323/85da05f2-6c31-4520-b55d-ed7eb01d40d8" />
+  <img src="https://github.com/VitorCarvalho67/TSLibraryAPI/assets/102667323/9c5f0a73-cba5-43b1-bf83-4059144a6f1c" />
 </p>
+
 
 # TSLibraryAPI (Node.js API)
 
