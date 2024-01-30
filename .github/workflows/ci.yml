@@ -25,7 +25,7 @@ jobs:
         run: docker-compose ps
 
       - name: Run unit tests with vitest
-        run: docker exec -it nginx npm test /bin/bash
+        run: docker exec -T api01 npm test
 
       - name: Stop and remove docker-compose containers
         run: docker-compose down
