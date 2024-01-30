@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 
 export class CreateUserUseCase {
     async execute({name, email, password}: CreateUserDTO ): Promise<User> {
+
         const userAlreadyExists = await prisma.user.findUnique({
             where: {
                 email
