@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { verfifyAccessToken } from '../jwt/jwtService';
-import prisma from '../prisma/client';
+import prisma  from '../prisma/client';
 import { JwtPayload } from 'jsonwebtoken';
 
 interface RequestWithAdmin extends Request {

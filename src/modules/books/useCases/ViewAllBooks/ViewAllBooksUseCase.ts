@@ -1,5 +1,5 @@
 import { Book } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { AppError } from "../../../../errors/error";
 
 export class ViewAllBooksUseCase {

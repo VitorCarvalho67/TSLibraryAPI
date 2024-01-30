@@ -1,5 +1,5 @@
 import { Avaliation } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { CreateAvaliationDTO } from "../../dtos/CreateAvaliationDTO";
 import { AppError } from "../../../../errors/error";
 

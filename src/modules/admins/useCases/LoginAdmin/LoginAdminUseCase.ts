@@ -1,5 +1,5 @@
 import { Admin } from '@prisma/client'
-import prisma from '../../../../prisma/client'
+import prisma  from '../../../../prisma/client'
 import { LoginAdminDTO } from '../../dtos/LoginAdminDTO'
 import { generateAccessToken } from '../../../../jwt/jwtService'
 

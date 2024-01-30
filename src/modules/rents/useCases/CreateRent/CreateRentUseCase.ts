@@ -1,5 +1,5 @@
 import { Rent } from "@prisma/client";
-import { prisma } from "../../../../prisma/client";
+import prisma  from "../../../../prisma/client";
 import { CreateRentDTO } from "../../dtos/CreateRentDTO";
 import { AppError } from "../../../../errors/error";
 
