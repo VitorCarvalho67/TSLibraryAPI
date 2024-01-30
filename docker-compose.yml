@@ -11,7 +11,7 @@ services:
       resources:
         limits:
           cpus: '0.15'
-          memory: '0.4GB'
+          memory: '1GB'
     command: sh -c "sleep 10 && npx prisma migrate deploy"
     networks:
       - API
@@ -32,7 +32,7 @@ services:
       resources:
         limits:
           cpus: '0.15'
-          memory: '0.5GB'
+          memory: '1.5GB'
     ports:
       - "9999:9999"
     networks:
