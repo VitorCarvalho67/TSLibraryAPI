@@ -25,10 +25,7 @@ jobs:
         run: docker-compose ps
 
       - name: Run unit tests with vitest
-        run: docker-compose exec -T api01 npm test
+        run: docker exec -it api01 npm test /bin/bash
 
       - name: Stop and remove docker-compose containers
         run: docker-compose down
-
-
-# nome do commit: "feat: add ci workflow for unit tests"
