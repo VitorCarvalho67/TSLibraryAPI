@@ -24,8 +24,11 @@ jobs:
       - name: Check if docker-compose is working
         run: docker-compose ps
 
+       - name: Wait for the api01 to be ready
+        run: sleep 10  # Ajuste o tempo conforme necessário
+
       - name: Run unit tests with vitest
-        run: docker exec api01 npm test
+        run: docker exec $(docker-compose ps -q api01) npm test
 
       - name: Stop and remove docker-compose containers
         run: docker-compose down
