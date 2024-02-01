@@ -16,6 +16,7 @@ Prerequisites
 - Docker-Compose
 - Nginx
 - Prisma
+- Vitest
 - MySQL
 
 Clone this repository
